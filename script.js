@@ -1,77 +1,78 @@
 document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.querySelector('.hamburger');
-    const menu = document.querySelector('nav');
-    const navLinks = document.querySelectorAll('nav ul li a');
-    const modal = document.getElementById('image-modal');
-    const modalImage = document.getElementById('modal-image');
-    const modalInfo = document.getElementById('image-info');
-    const closeButton = document.querySelector('.close-button');
-    const prevButton = document.querySelector('.prev-button');
-    const nextButton = document.querySelector('.next-button');
-    const galleryItems = document.querySelectorAll('.gallery-item img');
-    const backToTop = document.getElementById('back-to-top');
-
-    let currentIndex = 0;
-
-    // Toggle navigation menu
+    const menu = document.getElementById('menu');
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const body = document.body;
+    const backToTopButton = document.getElementById('back-to-top');
+    const commentInput = document.getElementById('comment-input');
+    const submitCommentButton = document.getElementById('submit-comment');
+    const commentsSection = document.getElementById('comments-section');
+    const subscriptionForm = document.getElementById('subscription-form');
+    const contactForm = document.getElementById('contact-form');
+    
+    // Toggle menu visibility
     hamburger.addEventListener('click', () => {
         menu.classList.toggle('show');
     });
 
-    // Close menu on link click
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            menu.classList.remove('show');
-        });
+    // Dark mode toggle
+    darkModeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
     });
 
-    // Open modal with image and info
-    galleryItems.forEach((item, index) => {
-        item.addEventListener('click', () => {
-            modal.style.display = 'block';
-            modalImage.src = item.src;
-            modalInfo.textContent = item.getAttribute('data-info');
-            currentIndex = index;
-        });
-    });
-
-    // Close modal
-    closeButton.addEventListener('click', () => {
-        modal.style.display = 'none';
-    });
-
-    // Navigate to previous image
-    prevButton.addEventListener('click', () => {
-        currentIndex = (currentIndex > 0) ? currentIndex - 1 : galleryItems.length - 1;
-        modalImage.src = galleryItems[currentIndex].src;
-        modalInfo.textContent = galleryItems[currentIndex].getAttribute('data-info');
-    });
-
-    // Navigate to next image
-    nextButton.addEventListener('click', () => {
-        currentIndex = (currentIndex < galleryItems.length - 1) ? currentIndex + 1 : 0;
-        modalImage.src = galleryItems[currentIndex].src;
-        modalInfo.textContent = galleryItems[currentIndex].getAttribute('data-info');
-    });
-
-    // Close modal on outside click
-    window.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.style.display = 'none';
-        }
-    });
-
-    // Show back to top button on scroll
+    // Scroll to top functionality
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 200) {
-            backToTop.style.display = 'block';
+        if (window.scrollY > 300) {
+            backToTopButton.style.display = 'block';
         } else {
-            backToTop.style.display = 'none';
+            backToTopButton.style.display = 'none';
         }
     });
 
-    // Scroll to top
-    backToTop.addEventListener('click', () => {
+    backToTopButton.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Comments section
+    submitCommentButton.addEventListener('click', () => {
+        const commentText = commentInput.value.trim();
+        if (commentText) {
+            const commentElement = document.createElement('p');
+            commentElement.textContent = commentText;
+            commentsSection.appendChild(commentElement);
+            commentInput.value = '';
+        }
+    });
+
+    // Newsletter subscription form
+    subscriptionForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const email = document.getElementById('email-input').value.trim();
+        if (email) {
+            alert(`Thank you for subscribing with email: ${email}`);
+            document.getElementById('email-input').value = '';
+        }
+    });
+
+    // Contact form
+    contactForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const name = document.getElementById('name-input').value.trim();
+        const email = document.getElementById('contact-email-input').value.trim();
+        const message = document.getElementById('message-input').value.trim();
+        if (name && email && message) {
+            alert(`Thank you for contacting us, ${name}!`);
+            document.getElementById('name-input').value = '';
+            document.getElementById('contact-email-input').value = '';
+            document.getElementById('message-input').value = '';
+        }
+    });
+
+    // Text-to-Speech
+    document.querySelectorAll('.article p').forEach(paragraph => {
+        paragraph.addEventListener('click', () => {
+            const utterance = new SpeechSynthesisUtterance(paragraph.textContent);
+            speechSynthesis.speak(utterance);
+        });
     });
 });

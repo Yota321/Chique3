@@ -10,6 +10,7 @@
     <header>
         <h1>Chique</h1>
         <div class="hamburger">☰</div>
+        <button id="dark-mode-toggle">Dark Mode</button>
     </header>
     <nav id="menu">
         <ul>
@@ -18,6 +19,8 @@
             <li><a href="#beauty">In the Issue</a></li>
             <li><a href="#luna">Luna</a></li>
             <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#subscribe">Subscribe</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
     <main>
@@ -73,6 +76,36 @@
                 </div>
             </div>
         </div>
+        
+        <!-- Comments Section -->
+        <section id="comments" class="article">
+            <h2>Comments</h2>
+            <div id="comments-section">
+                <!-- Existing comments will be appended here -->
+            </div>
+            <textarea id="comment-input" placeholder="Add a comment..."></textarea>
+            <button id="submit-comment">Submit</button>
+        </section>
+
+        <!-- Newsletter Subscription -->
+        <section id="subscribe" class="article">
+            <h2>Subscribe to our Newsletter</h2>
+            <form id="subscription-form">
+                <input type="email" id="email-input" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+
+        <!-- Contact Form -->
+        <section id="contact" class="article">
+            <h2>Contact Us</h2>
+            <form id="contact-form">
+                <input type="text" id="name-input" placeholder="Your Name" required>
+                <input type="email" id="contact-email-input" placeholder="Your Email" required>
+                <textarea id="message-input" placeholder="Your Message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </section>
     </main>
     <footer>
         <p>&copy; 2024 Chique Magazine. All rights reserved.</p>

@@ -8,9 +8,10 @@
 </head>
 <body>
     <header>
-        <h1>Chique</h1>
         <div class="hamburger">☰</div>
-        <button id="dark-mode-toggle">Dark Mode</button>
+        <h1 id="chique-header">Chique</h1>
+        <input type="text" id="search-input" placeholder="Search...">
+        <div class="light-bulb-icon">💡</div>
     </header>
     <nav id="menu">
         <ul>
@@ -19,30 +20,28 @@
             <li><a href="#beauty">In the Issue</a></li>
             <li><a href="#luna">Luna</a></li>
             <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#subscribe">Subscribe</a></li>
-            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
     <main>
         <section id="home" class="article">
             <h2>Welcome to Chique</h2>
             <img src="images/chique-image1.jpg" alt="Chique Magazine cover">
-            <p>Discover the latest in fashion, beauty, and lifestyle with Chique.</p>
+            <p>Discover the latest in fashion, beauty, and lifestyle with Chique. <button class="tts-button">🔊</button></p>
         </section>
         <section id="fashion" class="article">
             <h2>From the Editor</h2>
             <img src="images/chique-image2.jpg" alt="Fashion trends">
-            <p>Explore the hottest styles of the season.</p>
+            <p>Explore the hottest styles of the season. <button class="tts-button">🔊</button></p>
         </section>
         <section id="beauty" class="article">
             <h2>In the Issue</h2>
             <img src="images/chique-image3.jpg" alt="Beauty products">
-            <p>Get expert beauty advice and product recommendations.</p>
+            <p>Get expert beauty advice and product recommendations. <button class="tts-button">🔊</button></p>
         </section>
         <section id="luna" class="article">
             <h2>Luna</h2>
             <img src="images/chique-image4.jpg" alt="Luna lifestyle scene">
-            <p>Embrace the Chique way of life.</p>
+            <p>Embrace the Chique way of life. <button class="tts-button">🔊</button></p>
         </section>
         <section id="gallery" class="gallery">
             <h2>More from Chique</h2>
@@ -76,36 +75,6 @@
                 </div>
             </div>
         </div>
-        
-        <!-- Comments Section -->
-        <section id="comments" class="article">
-            <h2>Comments</h2>
-            <div id="comments-section">
-                <!-- Existing comments will be appended here -->
-            </div>
-            <textarea id="comment-input" placeholder="Add a comment..."></textarea>
-            <button id="submit-comment">Submit</button>
-        </section>
-
-        <!-- Newsletter Subscription -->
-        <section id="subscribe" class="article">
-            <h2>Subscribe to our Newsletter</h2>
-            <form id="subscription-form">
-                <input type="email" id="email-input" placeholder="Enter your email" required>
-                <button type="submit">Subscribe</button>
-            </form>
-        </section>
-
-        <!-- Contact Form -->
-        <section id="contact" class="article">
-            <h2>Contact Us</h2>
-            <form id="contact-form">
-                <input type="text" id="name-input" placeholder="Your Name" required>
-                <input type="email" id="contact-email-input" placeholder="Your Email" required>
-                <textarea id="message-input" placeholder="Your Message" required></textarea>
-                <button type="submit">Send</button>
-            </form>
-        </section>
     </main>
     <footer>
         <p>&copy; 2024 Chique Magazine. All rights reserved.</p>
